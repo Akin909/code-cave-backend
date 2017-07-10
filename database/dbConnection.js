@@ -2,11 +2,12 @@ const pgp = require('pg-promise')();
 require('dotenv').config();
 
 const connection = {
-  host: 'localhost',
+  host: 'ec2-23-23-225-12.compute-1.amazonaws.com',
   port: 5432,
-  name: 'code-cave',
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD
+  user: 'zsjbvcklijjzdx',
+  password: 'fe8f0ebfb82c2089887522ba9532b51ce1ae4005b2707f63d54b75097ec72b7d',
+  database: 'db7tvip5ooa815',
+  ssl: true
 };
 
 const db = pgp(connection);
