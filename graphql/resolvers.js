@@ -71,9 +71,6 @@ const resolvers = {
           `INSERT INTO codebase (user_id, code) VALUES ($1, $2) RETURNING ID`,
           [user_id, code]
         );
-        console.log('id', res.id);
-        console.log('user_id', id);
-        console.log('code', code);
         return {
           submittedCode: {
             code,
