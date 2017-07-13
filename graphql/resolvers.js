@@ -9,10 +9,11 @@ const resolvers = {
     users: async () => {
       try {
         //const users = await db.query(`SELECT * FROM users`);
-        const users = queries.Users();
-        console.log('users', users);
+        const users = await queries.AllUsers();
         return users.map(async user => {
-          const code = queries.UserCode(user.id);
+          const code = await queries.UserCode(user.id);
+          console.log('user', user.id);
+          console.log('code', code);
           //await db.query(
           //`SELECT * FROM codebase WHERE $1 = codebase.user_id`,
           //user.id
