@@ -8,7 +8,7 @@ export const Code = () => knex('codebase');
 
 export const UserCode = id => Code().where('user_id', parseInt(id));
 
-export const FindUser = username => Users().where('username', username);
+export const FindUser = username => Users().where('username', username).first();
 
 export const FindDuplicate = (username, email) =>
   Users().where('username', username).orWhere('email', email);
