@@ -11,17 +11,14 @@ exports.seed = function(knex, Promise) {
           password: 'stuff'
         }
       ])
-      .then(() => {
-        knex('codebase').insert(
-          {
-            user_id: '1',
-            code: '() => fn => next => fn(next)'
-          },
+      .then(() =>
+        knex('codebase').insert([
+          { user_id: '1', code: '() => fn => next => fn(next)' },
           {
             user_id: '1',
             code: 'function sayHello(name){ console.log("Hello" + name) }'
           }
-        );
-      });
+        ])
+      );
   });
 };
