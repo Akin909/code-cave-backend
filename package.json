@@ -19,6 +19,8 @@
     "graphql-server-express": "^1.0.0",
     "graphql-tools": "^1.1.0",
     "isomorphic-fetch": "^2.2.1",
+    "knex": "^0.13.0",
+    "pg": "^6.4.0",
     "pg-promise": "^6.3.0",
     "validator": "^7.2.0"
   },

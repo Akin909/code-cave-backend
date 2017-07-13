@@ -1,4 +1,6 @@
-import db from './../database/dbConnection.js';
+//import db from './../database/dbConnection.js';
+import db from './../database/knex';
+import * as queries from './../database/queries';
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 
@@ -6,12 +8,15 @@ const resolvers = {
   Query: {
     users: async () => {
       try {
-        const users = await db.query(`SELECT * FROM users`);
+        //const users = await db.query(`SELECT * FROM users`);
+        const users = queries.Users();
+        console.log('users', users);
         return users.map(async user => {
-          const code = await db.query(
-            `SELECT * FROM codebase WHERE $1 = codebase.user_id`,
-            user.id
-          );
+          const code = queries.UserCode(user.id);
+          //await db.query(
+          //`SELECT * FROM codebase WHERE $1 = codebase.user_id`,
+          //user.id
+          //);
           return {
             ...user,
             code
