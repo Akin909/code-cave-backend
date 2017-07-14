@@ -1,0 +1,26 @@
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('users').del().then(() => {
+    // Inserts seed entries
+    return knex('users')
+      .insert(
+        [
+          {
+            username: 'Akin909',
+            email: 'akin@test.com',
+            password: 'stuff'
+          }
+        ],
+        'id'
+      )
+      .then(user_id =>
+        knex('codebase').insert([
+          { user_id, code: '() => fn => next => fn(next)' },
+          {
+            user_id,
+            code: 'function sayHello(name){ console.log("Hello" + name) }'
+          }
+        ])
+      );
+  });
+};

@@ -44,11 +44,6 @@ const resolvers = {
       }
     },
     findCode: async (_, { id }) => {
-      //db
-      //.query(
-      //`SELECT users.firstname, users.surname, users.username, users.id, codebase.code, codebase.user_id FROM users, codebase WHERE codebase.user_id = $1`,
-      //id
-      //)
       const code = await queries.FindCode(id).catch(err => err);
       console.log('code', code);
       return code;
